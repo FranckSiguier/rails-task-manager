@@ -1,6 +1,8 @@
-<%= simple_form_for(@task) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :details %>
-  <%= f.input :completed %>
-  <%= f.submit %>
-<% end %>
+<div class="container" class="col-6">
+  <%= simple_form_for(@task) do |f| %>
+    <%= f.input :title, placeholder: 'Task at hand' %>
+    <%= f.input :details, placeholder: 'Describe the task' %>
+    <%= f.input :completed %>
+    <%= f.submit 'Ajouter', class: "btn btn-primary btn-block"%>
+  <% end %>
+</div>
