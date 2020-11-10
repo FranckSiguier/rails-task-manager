@@ -3,8 +3,13 @@
 <ul>
   <% @tasks.each do |task| %>
     <li>
-      <%= link_to task.title, task_path(task) %> |
-      <%= link_to "X", task_path(task), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% if task.completed == true %>
+        <%= link_to "☑️", mark_as_done_task_path(task), method: :patch %>
+      <% else %>
+        <%= link_to "🔲", mark_as_done_task_path(task), method: :patch %>
+      <% end %>
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to "🗑️", task_path(task), method: :delete, data: {confirm: 'Are you sure?'} %>
     </li>
 
   <% end %>
